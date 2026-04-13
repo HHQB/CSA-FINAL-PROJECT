@@ -24,6 +24,7 @@ public class Game {
             
             totalCupcakes += cupcakesProducedThisTurn;
             System.out.println("Added " + cupcakesProducedThisTurn + " cupcakes! Total: " + totalCupcakes);
+            System.out.println("Press any key to see upgrade/buy options...");
             
         }, 0, 10, TimeUnit.SECONDS);
     }
