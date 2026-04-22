@@ -2,10 +2,15 @@ import java.io.*;
 import java.util.*;
 
 public class Game {
+    // the long that counts all dem cupcakes
     private long totalCupcakes = 0;
+    //arraylist of buldings
     private List<Building> buildings = new ArrayList<>();
+    // for input handling
     private volatile boolean waitingForChoice = false;
+    // buffer for input
     private StringBuilder inputBuffer = new StringBuilder();
+    // for cupcake generation timing
     private long lastGeneration;
 
     public Game() {
@@ -24,17 +29,18 @@ public class Game {
         System.out.println("Game started! Cupcakes will be generated every 5 seconds.");
         System.out.println("Press Enter to see upgrade/buy options...");
         
+        // Main game loop
         while (true) {
             // Check for input
             checkInput();
             
-            // Check for generation
+            // Check for generation THIS IS THE GENERATION TIMER (:
             long currentTime = System.currentTimeMillis();
             if (currentTime - lastGeneration >= 5000) {
                 generateCupcakes();
                 lastGeneration = currentTime;
             }
-            
+            // Sleep briefly to avoid busy waiting
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
@@ -43,8 +49,10 @@ public class Game {
         }
     }
     
+    // input handling
     private void checkInput() {
         try {
+            // read available input without blocking
             while (System.in.available() > 0) {
                 int c = System.in.read();
                 if (c == '\n' || c == '\r') {
@@ -91,6 +99,7 @@ public class Game {
         System.out.println("Enter your choice:");
     }
     
+    // process the player's choice and buy the corresponding building if they have enough cupcakes
     private void processChoice(String choice) {
         if (choice.equals("1") && totalCupcakes >= 10) {
             buyClicker();
@@ -125,38 +134,39 @@ public class Game {
         }
     }
     
+    // methods to buy the buildings
     public void buyClicker() {
-        // Simple example to increment count
+        // increase count
         buildings.get(0).count++; 
     }
 
     public void buyGrandma() {
-        // Simple example to increment count
+        // increase count
         buildings.get(1).count++; 
     }
 
     public void buyFarm() {
-        // Simple example to increment count
+        // increase count
         buildings.get(2).count++; 
     }
     
     public void buyFactory() {
-        // Simple example to increment count
+        // increase count
         buildings.get(3).count++; 
     }
 
     public void buyBank() {
-        // Simple example to increment count
+        // increase count
         buildings.get(4).count++; 
     }
 
     public void buyTemple() {
-        // Simple example to increment count
+        // increase count
         buildings.get(5).count++; 
     }
 
     public void buyWizardTower() {
-        // Simple example to increment count
+        // increase count
         buildings.get(6).count++; 
     }
 }
