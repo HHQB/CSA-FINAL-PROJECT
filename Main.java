@@ -4,10 +4,7 @@ public class Main {
         Game myGame = new Game();
 
         // 2. Simulate buying buildings
-        System.out.println("Starting game! Buying 3 Factories...");
-        myGame.buyFactory(); 
-        myGame.buyFactory(); 
-        myGame.buyFactory(); 
+        System.out.println("Starting game...");
 
         // 3. Start the game
         myGame.run();

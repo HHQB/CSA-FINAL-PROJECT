@@ -55,7 +55,11 @@ public class Game {
             // read available input without blocking
             while (System.in.available() > 0) {
                 int c = System.in.read();
-                if (c == '\n' || c == '\r') {
+                if (c == ' ') {
+                    totalCupcakes += 1; // Add 1 cupcake for each space key press
+                    System.out.println("Added 1 cupcake! Total: " + totalCupcakes);
+                }
+                else if (c == '\n' || c == '\r') {
                     String line = inputBuffer.toString().trim();
                     inputBuffer.setLength(0);
                     if (!waitingForChoice) {
@@ -67,7 +71,7 @@ public class Game {
                     }
                 } else {
                     inputBuffer.append((char)c);
-                }
+                } 
             }
         } catch (IOException e) {
             e.printStackTrace();
