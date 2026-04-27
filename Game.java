@@ -13,7 +13,7 @@ public class Game {
     private StringBuilder inputBuffer = new StringBuilder();
     // for cupcake generation timing
     private long lastGeneration;
-    // track if space was pressed (for space+enter to generate cupcake)
+    // track if space was pressed (for space+enter to generate cupcake) wadasdsa
     private boolean spacePressedBeforeEnter = false;
 
     public Game() {
@@ -127,7 +127,7 @@ public class Game {
         }
 
         Building building = buildings.get(index);
-        int price = building.getPrice();
+        double price = building.getPrice();
 
         if (totalCupcakes < price) {
             System.out.println("Not enough cupcakes. You need " + price + ".");
