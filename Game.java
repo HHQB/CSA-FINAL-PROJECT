@@ -16,6 +16,9 @@ public class Game {
     // track if space was pressed (for space+enter to generate cupcake) wadasdsa
     private boolean spacePressedBeforeEnter = false;
 
+    /**
+     * Constructs a new {@code Game} and initializes the available building types.
+     */
     public Game() {
         // Initialize your building types
         buildings.add(new Building("Clicker", 1)); // Adds 1 per 5s
@@ -27,6 +30,9 @@ public class Game {
         buildings.add(new Building("Wizard-Tower", 5000)); // Adds 5000 per 5s
     }
 
+    /**
+     * Runs the main game loop, handling input and generating cupcakes periodically.
+     */
     public void run() {
         lastGeneration = System.currentTimeMillis();
         System.out.println("Game started! Cupcakes will be generated every 5 seconds.");
@@ -52,7 +58,14 @@ public class Game {
         }
     }
 
-    // input handling
+    /**
+     * Reads and processes user input from the console without blocking the game
+     * loop.
+     * <p>
+     * Space followed by Enter adds one cupcake, while Enter alone opens the buy
+     * menu or
+     * processes the current menu choice.
+     */
     private void checkInput() {
         try {
             // read available input without blocking
@@ -88,6 +101,11 @@ public class Game {
         }
     }
 
+    /**
+     * Generates cupcakes from all buildings and adds them to the player's total.
+     * <p>
+     * This method is called periodically by the game loop.
+     */
     private void generateCupcakes() {
         int cupcakesProducedThisTurn = 0;
 
@@ -101,6 +119,9 @@ public class Game {
         System.out.println("Press Enter to see upgrade/buy options...");
     }
 
+    /**
+     * Displays the current purchase options for all available buildings.
+     */
     private void showOptions() {
         System.out.println("Upgrade/Buy options:");
         for (int i = 0; i < buildings.size(); i++) {
@@ -110,8 +131,11 @@ public class Game {
         System.out.println("Enter your choice:");
     }
 
-    // process the player's choice and buy the corresponding building if they have
-    // enough cupcakes
+    /**
+     * Processes the player's menu choice and attempts to buy the selected building.
+     *
+     * @param choice the menu selection entered by the player
+     */
     private void processChoice(String choice) {
         int index;
         try {
@@ -140,36 +164,57 @@ public class Game {
     }
 
     // methods to buy the buildings
+    /**
+     * Buys a Clicker by increasing the Clicker building count.
+     */
     public void buyClicker() {
         // increase count
         buildings.get(0).count++;
     }
 
+    /**
+     * Buys a Grandma by increasing the Grandma building count.
+     */
     public void buyGrandma() {
         // increase count
         buildings.get(1).count++;
     }
 
+    /**
+     * Buys a Farm by increasing the Farm building count.
+     */
     public void buyFarm() {
         // increase count
         buildings.get(2).count++;
     }
 
+    /**
+     * Buys a Factory by increasing the Factory building count.
+     */
     public void buyFactory() {
         // increase count
         buildings.get(3).count++;
     }
 
+    /**
+     * Buys a Bank by increasing the Bank building count.
+     */
     public void buyBank() {
         // increase count
         buildings.get(4).count++;
     }
 
+    /**
+     * Buys a Temple by increasing the Temple building count.
+     */
     public void buyTemple() {
         // increase count
         buildings.get(5).count++;
     }
 
+    /**
+     * Buys a Wizard Tower by increasing the Wizard-Tower building count.
+     */
     public void buyWizardTower() {
         // increase count
         buildings.get(6).count++;
