@@ -1,13 +1,13 @@
 public class Cupcake {
-    private static int cupcakeCount;
+    private static long cupcakeCount;
 
     // I dont even need this class anymore lmao
 
-    public static void addCupcakes(int count) {
+    public static void addCupcakes(long count) {
         cupcakeCount += count;
     }
 
-    public static int returnCupcakeCount() {
+    public static long returnCupcakeCount() {
         return cupcakeCount;
     }
 }

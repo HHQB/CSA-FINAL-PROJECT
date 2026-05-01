@@ -1,9 +1,9 @@
 public class Building {
     String name;
-    int count = 0;
-    int baseRate; // Amount of cupcakes produced per every ten seconds
-    int baseUpgradeCost; // Base cost for the first upgrade of this building
-    int upgradeLevel = 0; // Track how many times this building has been upgraded
+    long count = 0;
+    long baseRate; // Amount of cupcakes produced per every ten seconds
+    long baseUpgradeCost; // Base cost for the first upgrade of this building
+    long upgradeLevel = 0; // Track how many times this building has been upgraded
 
     /**
      * Creates a new building type with a name and a base cupcake production rate.
@@ -11,7 +11,7 @@ public class Building {
      * @param name     the name of the building
      * @param baseRate the base production rate for the building
      */
-    public Building(String name, int baseRate) {
+    public Building(String name, long baseRate) {
         this.name = name;
         this.baseRate = baseRate;
         this.upgradeLevel = 0;
@@ -31,6 +31,28 @@ public class Building {
             this.baseUpgradeCost = 100000;
         } else if (name.equals("Wizard-Tower")) {
             this.baseUpgradeCost = 1000000;
+        } else if (name.equals("Shipment")) {
+            this.baseUpgradeCost = 500000000L;
+        } else if (name.equals("Alchemy-Lab")) {
+            this.baseUpgradeCost = 3300000000L;
+        } else if (name.equals("Portal")) {
+            this.baseUpgradeCost = 510000000000L;
+        } else if (name.equals("Time-Machine")) {
+            this.baseUpgradeCost = 7500000000000L;
+        } else if (name.equals("Antimatter-Condenser")) {
+            this.baseUpgradeCost = 100000000000L;
+        } else if (name.equals("Prism")) {
+            this.baseUpgradeCost = 14000000000000L;
+        } else if (name.equals("Chancemaker")) {
+            this.baseUpgradeCost = 17000000000000L;
+        } else if (name.equals("Fractal-Engine")) {
+            this.baseUpgradeCost = 21000000000000L;
+        } else if (name.equals("Javascript-Console")) {
+            this.baseUpgradeCost = 26000000000000L;
+        } else if (name.equals("Idleverse")) {
+            this.baseUpgradeCost = 31000000000000L;
+        } else if (name.equals("Cortex-Baker")) {
+            this.baseUpgradeCost = 41000000000000L;
         } else {
             this.baseUpgradeCost = 100;
         }
@@ -42,8 +64,8 @@ public class Building {
      *
      * @return total production from this building type
      */
-    int getTotalProduction() {
-        return (int)(baseRate * count * Math.pow(2, upgradeLevel));
+    long getTotalProduction() {
+        return (long)(baseRate * count * Math.pow(2, upgradeLevel));
     }
 
     /**
@@ -66,6 +88,28 @@ public class Building {
             return 1000000 * Math.pow(1.15, count);
         } else if (name.equals("Wizard-Tower")) {
             return 1000000000 * Math.pow(1.15, count);
+        } else if (name.equals("Shipment")) {
+            return 5000000000.0 * Math.pow(1.15, count);
+        } else if (name.equals("Alchemy-Lab")) {
+            return 33000000000.0 * Math.pow(1.15, count);
+        } else if (name.equals("Portal")) {
+            return 510000000000.0 * Math.pow(1.15, count);
+        } else if (name.equals("Time-Machine")) {
+            return 7500000000000.0 * Math.pow(1.15, count);
+        } else if (name.equals("Antimatter-Condenser")) {
+            return 100000000000.0 * Math.pow(1.15, count);
+        } else if (name.equals("Prism")) {
+            return 14000000000000.0 * Math.pow(1.15, count);
+        } else if (name.equals("Chancemaker")) {
+            return 17000000000000.0 * Math.pow(1.15, count);
+        } else if (name.equals("Fractal-Engine")) {
+            return 21000000000000.0 * Math.pow(1.15, count);
+        } else if (name.equals("Javascript-Console")) {
+            return 26000000000000.0 * Math.pow(1.15, count);
+        } else if (name.equals("Idleverse")) {
+            return 31000000000000.0 * Math.pow(1.15, count);
+        } else if (name.equals("Cortex-Baker")) {
+            return 41000000000000.0 * Math.pow(1.15, count);
         }
         return Integer.MAX_VALUE; // Default case
     }
@@ -92,7 +136,7 @@ public class Building {
      *
      * @return the upgrade level
      */
-    public int getUpgradeLevel() {
+    public long getUpgradeLevel() {
         return upgradeLevel;
     }
 }

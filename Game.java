@@ -47,6 +47,17 @@ public class Game {
         buildings.add(new Building("Bank", 1000)); // Adds 1000 per 5s
         buildings.add(new Building("Temple", 2000)); // Adds 2000 per 5s
         buildings.add(new Building("Wizard-Tower", 5000)); // Adds 5000 per 5s
+        buildings.add(new Building("Shipment", 10000)); // Adds 10000 per 5s
+        buildings.add(new Building("Alchemy-Lab", 50000)); // Adds 50000 per 5s
+        buildings.add(new Building("Portal", 100000)); // Adds 100000 per 5s
+        buildings.add(new Building("Time-Machine", 500000)); // Adds 500000 per 5s
+        buildings.add(new Building("Antimatter-Condensor", 1000000)); // Adds 1000000 per 5s
+        buildings.add(new Building("Prism", 5000000)); // Adds 5000000 per 5s
+        buildings.add(new Building("Chancemaker", 10000000)); // Adds 10000000 per 5s
+        buildings.add(new Building("Fractal-Engine", 50000000)); // Adds 50000000 per 5s
+        buildings.add(new Building("Javascript-Console", 100000000)); // Adds 100000000 per 5s
+        buildings.add(new Building("Idleverse", 500000000)); // Adds 500000000 per 5s
+        buildings.add(new Building("Cortex-Baker", 1000000000)); // Adds 1000000000 per 5s
     }
 
     /**
@@ -126,7 +137,7 @@ public class Game {
      * This method is called periodically by the game loop.
      */
     private void generateCupcakes() {
-        int cupcakesProducedThisTurn = 0;
+        long cupcakesProducedThisTurn = 0;
 
         // Sum up production from all building types
         for (Building b : buildings) {
@@ -174,9 +185,9 @@ public class Game {
      * @param choice the menu selection entered by the player
      */
     private void processChoice(String choice) {
-        int choiceNum;
+        long choiceNum;
         try {
-            choiceNum = Integer.parseInt(choice);
+            choiceNum = Long.parseLong(choice);
         } catch (NumberFormatException e) {
             System.out.println("Invalid choice. Please enter a number between 1-16.");
             return;
@@ -184,8 +195,8 @@ public class Game {
 
         // Handle Buy commands (1-7)
         if (choiceNum >= 1 && choiceNum <= 7) {
-            int index = choiceNum - 1;
-            Building building = buildings.get(index);
+            long index = choiceNum - 1;
+            Building building = buildings.get((int)index);
             double price = building.getPrice();
 
             if (totalCupcakes < price) {
@@ -199,13 +210,13 @@ public class Game {
         }
         // Handle Upgrade commands (8-14)
         else if (choiceNum >= 8 && choiceNum <= 14) {
-            int index = choiceNum - 8;
+            long index = choiceNum - 8;
             if (index >= buildings.size()) {
                 System.out.println("Invalid choice.");
                 return;
             }
 
-            Building building = buildings.get(index);
+            Building building = buildings.get((int)index);
             double upgradePrice = building.getUpgradeCost();
 
             if (totalCupcakes < upgradePrice) {
@@ -318,5 +329,49 @@ public class Game {
     public void buyWizardTower() {
         // increase count
         buildings.get(6).count++;
+    }
+
+    public void buyShipment() {
+        buildings.get(7).count++;
+    }
+
+    public void buyAlchemyLab() {
+        buildings.get(8).count++;
+    }
+
+    public void buyPortal() {
+        buildings.get(9).count++;
+    }
+
+    public void buyTimeMachine() {
+        buildings.get(10).count++;
+    }
+
+    public void buyAntimatterCondensor() {
+        buildings.get(11).count++;
+    }
+
+    public void buyPrism() {
+        buildings.get(12).count++;
+    }
+
+    public void buyChancemaker() {
+        buildings.get(13).count++;
+    }
+
+    public void buyFractalEngine() {
+        buildings.get(14).count++;
+    }
+
+    public void buyJavascriptConsole() {
+        buildings.get(15).count++;
+    }
+
+    public void buyIdleverse() {
+        buildings.get(16).count++;
+    }
+
+    public void buyCortexBaker() {
+        buildings.get(17).count++;
     }
 }

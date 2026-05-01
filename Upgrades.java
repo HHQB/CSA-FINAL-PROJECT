@@ -1,6 +1,6 @@
 public class Upgrades {
     String name;
-    int cost; // Cost of the upgrade
+    long cost; // Cost of the upgrade
     String description; // Description of the upgrade's effect
     Building targetBuilding; // The specific building this upgrade affects
 
@@ -11,7 +11,7 @@ public class Upgrades {
      * @param cost        the cost of the upgrade
      * @param description a description of what the upgrade does
      */
-    public Upgrades(String name, int cost, String description) {
+    public Upgrades(String name, long cost, String description) {
         this.name = name;
         this.cost = cost;
         this.description = description;
@@ -26,7 +26,7 @@ public class Upgrades {
      * @param description     a description of what the upgrade does
      * @param targetBuilding  the building this upgrade affects
      */
-    public Upgrades(String name, int cost, String description, Building targetBuilding) {
+    public Upgrades(String name, long cost, String description, Building targetBuilding) {
         this.name = name;
         this.cost = cost;
         this.description = description;
